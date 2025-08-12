@@ -14,7 +14,7 @@ target_link_libraries(game PRIVATE opeGL)
 
 add_custom_target(copy_resources ALL
         COMMAND ${CMAKE_COMMAND} -E copy_directory
-        ${PROJECT_SOURCE_DIR}/resources
+        ${PROJECT_SOURCE_DIR}/../opeGL/resources
         ${PROJECT_BINARY_DIR}/resources
         COMMENT "Copying resources into binary directory")
 
