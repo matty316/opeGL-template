@@ -18,6 +18,12 @@ add_custom_target(copy_resources ALL
         ${PROJECT_BINARY_DIR}/resources
         COMMENT "Copying resources into binary directory")
 
-add_dependencies(game copy_resources)
+add_custom_target(copy_resources_local ALL
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${PROJECT_SOURCE_DIR}/resources
+        ${PROJECT_BINARY_DIR}/resources
+        COMMENT "Copying resources into binary directory")
+
+add_dependencies(game copy_resources copy_resources_local)
 
 target_compile_options(game PRIVATE -Wall -Wextra -g)
